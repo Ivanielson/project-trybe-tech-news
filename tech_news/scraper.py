@@ -74,11 +74,3 @@ def scrape_noticia(html_content):
 # Requisito 5
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
-
-
-# REF: https://www.journaldev.com/23625/python-trim-string-rstrip-lstrip-strip
-
-
-if __name__ == "__main__":
-    content = fetch("https://blog.betrybe.com/tecnologia/arquivo-bin/")
-    scrape_noticia(content)
