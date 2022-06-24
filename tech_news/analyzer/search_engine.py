@@ -19,6 +19,12 @@ def search_by_date(date):
 # Requisito 8
 def search_by_tag(tag):
     """Seu código deve vir aqui"""
+    find_tag = f"{tag[0].upper()}{tag[1:].lower()}"
+    data = search_news({"tags": find_tag})
+    report_list = []
+    for news in data:
+        report_list.append((news["title"], news["url"]))
+    return report_list
 
 
 # Requisito 9
