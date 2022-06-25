@@ -1,4 +1,5 @@
 from tech_news.database import search_news
+import datetime
 
 
 months = {
@@ -28,7 +29,7 @@ def search_by_title(title):
 
 
 def convert_date_to_long_format(date):
-    split_date = date.split('-')
+    split_date = str(date).split('-')
     if int(split_date[2]) < 10:
         new = f"{split_date[2]} de {months[split_date[1]]} {split_date[0]}"
         return new[1:]
@@ -40,7 +41,8 @@ def convert_date_to_long_format(date):
 def search_by_date(date):
     """Seu código deve vir aqui"""
     try:
-        news_date = convert_date_to_long_format(date)
+        format_date = datetime.date.fromisoformat(date)
+        news_date = convert_date_to_long_format(format_date)
         data = search_news({"timestamp": news_date})
         report_list = []
         for news in data:
