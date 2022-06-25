@@ -5,13 +5,8 @@ from tech_news.database import find_news
 def top_5_news():
     """Seu código deve vir aqui"""
     data = find_news()
-    report = sorted(
-        data,
-        key=lambda comment: comment["comments_count"],
-        reverse=True
-    )
     order_list = sorted(
-        report,
+        data,
         key=lambda row: row["comments_count"],
         reverse=True
     )
